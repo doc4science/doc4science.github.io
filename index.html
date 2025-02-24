@@ -8,6 +8,38 @@
     <link rel="icon" href="media/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Samuel Grayson's Personal Website</title>
+    <style>
+      .showcase {
+        height: 100vh;
+        background: url('media/background1.jpg') no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        transition: background 1s ease-in-out;
+      }
+      .showcase-content {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 2rem;
+        border-radius: 10px;
+        color: white;
+        max-width: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .showcase-content img {
+        width: 150px;
+        height: 200px;
+        border-radius: 10px;
+        margin-right: 1rem;
+        object-fit: cover;
+      }
+      .text-content {
+        text-align: left;
+      }
+    </style>
   </head>
   <body>
     <!-- Navbar -->
@@ -16,30 +48,36 @@
         <a href="#" class="navbar-brand">SamuelGrayson.net</a>
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav ms-auto">
-                <li class="navbar-item">
+                <li class="nav-item">
                     <a href="media/resume.pdf" class="nav-link">Resumé</a>
-                    </li>
-                </ul>
-            </div>
+                </li>
+            </ul>
+        </div>
         </div>
     </nav>
 
     <!-- Showcase -->
-
-    <section class="bg-dark    text-light p-5 text-center">
-      <div class="container">
-        <div class="d-sm-flex">
-          <div>
-            <h1>Hi there &#128075 Nice to meet you!<br> I'm <span class="text-warning">Samuel Grayson</span>...&nbsp&nbsp</h1>
-            <p class="lead">
-              ...a current second year student at <span style="color:#4E2A84"><b> Northwestern University</b></span> studying computer engineering.
-              <!--   Please take some time to see what I've been up to below! -->
-            </p>
-          </div>
-          <img class="img-fluid rounded ms-auto w-50" src="media/samuel.png" alt="Photo of Samuel Grayson"/>
+    <section class="showcase" id="showcase">
+      <div class="showcase-content">
+        <img src="media/samuel.png" alt="Photo of Samuel Grayson">
+        <div class="text-content">
+          <h1>Hi there &#128075; Nice to meet you!<br> I'm <span class="text-warning">Samuel Grayson</span>...</h1>
+          <p class="lead">
+            ...a current second-year student at <span style="color:#4E2A84"><b>Northwestern University</b></span> studying computer engineering.
+          </p>
         </div>
       </div>
     </section>
+    
+    <script>
+      const images = ['media/background1.jpg', 'media/background2.jpg', 'media/background3.jpg', 'media/background4.jpg'];
+      let index = 0;
+      function changeBackground() {
+        index = (index + 1) % images.length;
+        document.getElementById('showcase').style.backgroundImage = `url('${images[index]}')`;
+      }
+      setInterval(changeBackground, 5000);
+    </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

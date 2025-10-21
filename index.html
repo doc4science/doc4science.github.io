@@ -1,164 +1,188 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="icon" href="media/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="global.css">
-    <title>Samuel Grayson's Personal Website</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Samuel Grayson's Personal Wesbite</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-      body {
-        font-family: 'IBM Plex Mono', monospace;
-        margin: 0;
-        padding: 0;
+      /* Add some basic styles for the tabbed content */
+      .tab-container {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        font-family: 'Tbc_l';
       }
-
-      .header {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding: 1rem;
-        background-color: #5f804f;
+      .tab {
+        display: inline-block;
+        padding: 10px 20px;
+        cursor: pointer;
+        background: #000000;
+        border: 1px solid #ccc;
+        border-bottom: none;
       }
-
-      .header img {
-        width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        margin-right: 1rem;
-        object-fit: cover;
+      .tab.active {
+        background: rgb(67, 67, 74);
+        font-weight: bold;
       }
-
-      .header .text-content {
-        text-align: left;
-        color: white;
-        font-style: italic; 
+      .tab-content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
       }
-
-      .header .text-content h1 {
-        margin: 0;
-        font-size: 2rem;
+      .tab-content.active {
+        display: block;
       }
-
-      .header .text-content p {
-        margin: 0.5rem 0 0;
-        font-size: 1.2rem;
-      }
-
-    
-      #photoCarousel img {
-        max-height: 65vh; 
-        width: 100%; 
-        object-fit: contain; 
-        background-color: white; 
-      }
-
-
-      .carousel-control-prev-icon,
-      .carousel-control-next-icon {
-        background-color: black; 
-        border-radius: 50%; 
+      /* Style for the iframe */
+      .resume-iframe {
+        width: 100%;
+        height: 600px; /* Adjust height as needed */
+        border: none;
       }
     </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand bg-dark navbar-dark">
-      <div class="container">
-        <a href="#" class="navbar-brand">SamuelGrayson.net</a>
-        <div class="collapse navbar-collapse">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="writingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Writing
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="writingDropdown">
-                <li><a class="dropdown-item" href="food_travel.html">Food & Travel</a></li>
-                <li><a class="dropdown-item" href="general.html">What I've Been Up To</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a href="media/resume.pdf" class="nav-link">Resumé</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+    <main class="container">
+      <section class="left">
+        <h1 class="title">Hi, I'm Samuel Grayson</h1>
 
-
-    <header class="header">
-      <img src="media/samuel.png" alt="Photo of Samuel Grayson">
-      <div class="text-content">
-        <h1>Hi there &#128075; Nice to meet you!<br> I'm <span class="text-warning">Samuel Grayson</span>...</h1>
-        <p id="cycling-text">
-          ...a current second-year student at <span style="color:#4E2A84"><b>Northwestern University</b></span> studying computer engineering.
-        </p>
-      </div>
-    </header>
-
-
-    <div id="photoCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="media/display1.jpeg" class="d-block w-100" alt="Photo 1">
+        <div class="subtitle-row">
+          <h2 class="subtitle subtitle-constant">and I'm a</h2>
+          <h2 class="subtitle subtitle-cycle" id="cycling-text">
+            junior at <span style="color:#4E2A84"><b>Northwestern University</b></span>.
+          </h2>
         </div>
-        <div class="carousel-item">
-          <img src="media/display2.jpeg" class="d-block w-100" alt="Photo 2">
-        </div>
-        <div class="carousel-item">
-          <img src="media/display3.jpeg" class="d-block w-100" alt="Photo 3">
-        </div>
-        <div class="carousel-item">
-          <img src="media/display4.jpeg" class="d-block w-100" alt="Photo 4">
-        </div>
-        <div class="carousel-item">
-          <img src="media/display5.jpeg" class="d-block w-100" alt="Photo 4">
-        </div>
-        <div class="carousel-item">
-          <img src="media/display6.jpeg" class="d-block w-100" alt="Photo 4">
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#photoCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#photoCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
 
+        <!-- Tabbed content box -->
+        <div class="tab-container">
+          <div class="tab active" onclick="showTab('resume')">Résumé</div>
+          <div class="tab" onclick="showTab('projects')">Projects</div>
+          <div class="tab" onclick="showTab('travel')">Travel Blog</div>
 
-    <p class="text-center mt-3" style="font-size: 0.8rem; font-weight: 300;">In my free time I enjoy taking pictures. You can see some of them above.</p>
+          <div id="resume" class="tab-content active">
+            <!--<h3 class="small-ft">Resume</h3>-->
+            <iframe class="resume-iframe" src="media/resume.pdf" title="Resume"></iframe>
+          </div>
+          <div id="projects" class="tab-content">
+            <h3>Projects</h3>
+            <p>View my projects here:  <a href="general.html">Projects</a></p>
+          </div>
+          <div id="travel" class="tab-content">
+            <h3>Travel Blog</h3>
+            <p>View my travel blog here:  <a href="food_travel.html">Food & Travel</a></p>
+           
+          </div>
+        </div>
+      </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+      <aside class="right">
+        <div class="floating-photos" aria-hidden="true">
+          <img src="media/photo1.jpeg" alt="photo 1" class="photo p1">
+          <img src="media/photo2.jpeg" alt="photo 2" class="photo p2">
+          <img src="media/photo3.jpeg" alt="photo 3" class="photo p3">
+          <img src="media/photo4.jpeg" alt="photo 4" class="photo p4">
+          <img src="media/photo5.jpeg" alt="photo 5" class="photo p5">
+          <img src="media/photo6.jpeg" alt="photo 6" class="photo p6">
+        </div>
+      </aside>
+    </main>
+
+    <script src="script.js" defer></script>
     <script>
+      // shorter fragments — the constant "I'm a" is handled by the left element
       const sentences = [
-        "...a current second-year student at <span style='color:#4E2A84'><b>Northwestern University</b></span> studying computer engineering.",
-        "...a passionate engineer with a love for problem-solving and innovation.",
-        "...an avid traveler who enjoys exploring the world.",
-        "...an avid traveler who enjoys exploring the world.",
-        "...a tech enthusiast who loves to stay updated with the latest trends in technology.",
-        "...a lifelong learner who believes in the power of education and self-improvement.",
-        "...a creative thinker who enjoys brainstorming and developing new ideas.",
-        "...a team player who values collaboration and teamwork.",
-        "...a problem solver who thrives on challenges and finding solutions.",
-        "...a foodie who loves trying out new restaurants and cuisines.",
+        " junior at <span style='color:#4E2A84'><b>Northwestern University</b></span>.",
+        " computer engineering major.",
+        " traveler who enjoys exploring the world.",
+        " retro technology enthusiast.",
+        " problem-solving entrepeneur.",
       ];
 
-      let currentIndex = 0; // Start with the first sentence
-      const cyclingTextElement = document.getElementById("cycling-text");
+      const el = document.getElementById("cycling-text");
+      el.style.position = "relative";
+      el.style.overflow = "hidden";
+      el.style.boxSizing = "border-box";
 
+      // preserve height so layout doesn't jump when replacing lines
+      const initialHeight = el.offsetHeight || 36;
+      const extra = 0; // px — tweak if needed
+      el.style.minHeight = (initialHeight + extra) + "px";
 
-      function updateText() {
-        currentIndex = (currentIndex + 1) % sentences.length; // Cycle through the sentences
-        cyclingTextElement.innerHTML = sentences[currentIndex]; // Update the text content
+      let currentIndex = 0;
+
+      const createSpan = (html) => {
+        const s = document.createElement("span");
+        s.innerHTML = html;
+        Object.assign(s.style, {
+          display: "block",
+          position: "absolute",
+          left: "0",
+          right: "0",
+          top: "0",
+          transform: "translateY(0)",
+          opacity: "1",
+          transition: "transform 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease",
+        });
+        return s;
+      };
+
+      // start with the first fragment explicitly
+      const startingHTML = sentences[0];
+      let currentSpan = createSpan(startingHTML);
+      el.innerHTML = "";
+      el.appendChild(currentSpan);
+
+      function showNext() {
+        const nextIndex = (currentIndex + 1) % sentences.length;
+        const nextSpan = createSpan(sentences[nextIndex]);
+        nextSpan.style.transform = "translateY(100%)";
+        nextSpan.style.opacity = "0";
+        el.appendChild(nextSpan);
+
+        requestAnimationFrame(() => {
+          currentSpan.style.transform = "translateY(-100%)";
+          currentSpan.style.opacity = "0";
+          nextSpan.style.transform = "translateY(0)";
+          nextSpan.style.opacity = "1";
+        });
+
+        setTimeout(() => {
+          if (currentSpan.parentNode) el.removeChild(currentSpan);
+          currentSpan = nextSpan;
+          currentIndex = nextIndex;
+        }, 700);
       }
 
-      // Change the text every 3 seconds
-      setInterval(updateText, 3000);
+      const rotateInterval = 3000;
+      let timer = setInterval(showNext, rotateInterval);
+
+      el.addEventListener("mouseenter", () => clearInterval(timer));
+      el.addEventListener("mouseleave", () => {
+        clearInterval(timer);
+        timer = setInterval(showNext, rotateInterval);
+      });
+
+      // Tab functionality
+      function showTab(tabName) {
+        const tabs = document.querySelectorAll('.tab');
+        const contents = document.querySelectorAll('.tab-content');
+
+        tabs.forEach(tab => {
+          tab.classList.remove('active');
+        });
+
+        contents.forEach(content => {
+          content.classList.remove('active');
+        });
+
+        document.querySelector(`.tab-content#${tabName}`).classList.add('active');
+        document.querySelector(`.tab[onclick="showTab('${tabName}')"]`).classList.add('active');
+      }
     </script>
+    <footer>
+      <p>SamuelGrayson.net</p>
+      <p>42.058536, -87.674663</p>
+    </footer>
   </body>
 </html>

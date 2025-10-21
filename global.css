@@ -1,5 +1,16 @@
+@font-face {
+    font-family: Tbc_l_i;
+    src: url("fonts/light_i.otf") format("opentype");
+}
+@font-face {
+    font-family: Tbc_l;
+    src: url("fonts/light.otf") format("opentype");
+}
+
+
+
 body {
-  font-family: 'IBM Plex Mono', monospace;
+  font-family: 'Tbc_l', monospace;
   margin: 0;
   padding: 0;
 }
